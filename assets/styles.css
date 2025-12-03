@@ -605,6 +605,7 @@ body {
   flex-direction: column;
   gap: 10px;
   min-height: 0;
+  -webkit-overflow-scrolling: touch; /* iOS'ta yumuşak scroll */
 }
 
 .message {
@@ -960,6 +961,7 @@ body {
     height: auto;
     min-height: 100vh;
     overflow: auto;
+    display: block;              /* Flex merkezlemeyi kaldır */
   }
 
   .app {
@@ -969,6 +971,7 @@ body {
     margin: 0;
     height: auto;
     min-height: 100vh;
+    max-height: none;            /* 100vh sınırını kaldır, sayfa uzayabilsin */
     border-radius: 0;
   }
 
