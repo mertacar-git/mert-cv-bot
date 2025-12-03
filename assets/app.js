@@ -4,8 +4,6 @@ const form = document.getElementById("chat-form");
 const input = document.getElementById("question");
 const messagesEl = document.getElementById("messages");
 const sendBtn = document.getElementById("send-btn");
-const profilePhoto = document.getElementById("profile-photo");
-
 let isLoading = false;
 
 // İstatistikler
@@ -68,9 +66,9 @@ function updateStatsSafely(question, answer, responseTime) {
   }
 }
 
-// Fotoğraf yüklenemezse fallback
-if (profilePhoto) {
-  profilePhoto.onerror = function() {
+// Fotoğraf yüklenemezse fallback (tüm profil fotoğrafları için)
+document.querySelectorAll('.profile-photo').forEach(img => {
+  img.onerror = function() {
     this.style.display = 'none';
     const avatar = this.parentElement;
     avatar.innerHTML = 'M';
@@ -78,7 +76,7 @@ if (profilePhoto) {
     avatar.style.fontSize = '1.5rem';
     avatar.style.color = '#000000';
   };
-}
+});
 
 // Sosyal medya linklerini ayarla
 const linkedinLink = document.getElementById("linkedin-link");

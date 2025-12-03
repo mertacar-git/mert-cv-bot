@@ -77,7 +77,7 @@
     <aside class="sidebar">
       <div class="brand">
         <div class="avatar">
-          <img src="assets/mert-photo.jpg.jpg" alt="Mert Açar" id="profile-photo" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='M'; this.parentElement.style.fontWeight='700'; this.parentElement.style.fontSize='1.5rem'; this.parentElement.style.color='var(--text-main)';" />
+          <img src="assets/mert-photo.jpg.jpg" alt="Mert Açar" class="profile-photo" />
         </div>
         <div class="brand-text">
           <h1 id="brand-title">Mert CV Bot</h1>
@@ -121,9 +121,16 @@
 
     <main class="chat">
       <header class="chat-header">
-        <div>
-          <h2 id="chat-title">Konuşma Alanı</h2>
-          <p id="chat-subtitle">Mert'in deneyimleri, projeleri, güçlü yönleri hakkında soru sor.</p>
+        <div class="chat-header-inner">
+          <div class="chat-header-profile">
+            <div class="avatar avatar-mobile">
+              <img src="assets/mert-photo.jpg.jpg" alt="Mert Açar" class="profile-photo" />
+            </div>
+            <div class="chat-header-text">
+              <h2 id="chat-title">Konuşma Alanı</h2>
+              <p id="chat-subtitle">Mert'in deneyimleri, projeleri, güçlü yönleri hakkında soru sor.</p>
+            </div>
+          </div>
         </div>
       </header>
 

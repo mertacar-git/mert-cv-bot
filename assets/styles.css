@@ -571,6 +571,31 @@ body {
   color: var(--text-dim);
 }
 
+/* Chat header profile (mobil için) */
+.chat-header-inner {
+  width: 100%;
+}
+
+.chat-header-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-mobile {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.chat-header-text h2 {
+  font-size: 1rem;
+}
+
+.chat-header-text p {
+  font-size: 0.78rem;
+}
+
 .messages {
   flex: 1;
   padding: 14px 16px;
@@ -945,6 +970,7 @@ body {
 
   .chat {
     grid-row: 2;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
   }
 
   /* Üst kontrol menüsünü sabitten çıkar, içerik akışına al */
@@ -966,9 +992,8 @@ body {
     font-size: 1rem;
   }
 
-  /* Artık padding-top'a gerek yok, normal header yüksekliği yeterli */
   .chat-header {
-    padding-top: 16px;
+    padding-top: 8px;
   }
 
   /* Mesaj balonlarını mobilde biraz daralt ve metni okunur yap */
@@ -984,5 +1009,14 @@ body {
     font-size: 0.88rem;
     line-height: 1.6;
     padding: 10px 14px;
+  }
+
+  /* Alt URL barının üstünde kalmaları için safe-area padding */
+  .chat-input {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0));
+  }
+
+  .quick-questions {
+    padding-bottom: 8px;
   }
 }
