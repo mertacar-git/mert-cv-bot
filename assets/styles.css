@@ -932,15 +932,44 @@ body {
 @media (max-width: 800px) {
   .app {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
     max-width: 100%;
     margin: 0;
     border-radius: 0;
   }
 
+  /* Sidebar'ı mobilde de göster, üstte küçük bir özet olarak */
   .sidebar {
-    display: none;
+    display: flex;
+    grid-row: 1;
+    max-height: 35vh;
   }
-  
+
+  .chat {
+    grid-row: 2;
+  }
+
+  /* Header butonlarının yazıların üstüne binmesini engelle */
+  .chat-header {
+    padding-top: 56px;
+  }
+
+  .header-controls {
+    top: 8px;
+    right: 8px;
+    transform: none;
+  }
+
+  .control-group {
+    padding: 6px;
+  }
+
+  .control-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
   .message {
     max-width: 90%;
   }

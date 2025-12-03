@@ -55,6 +55,7 @@ Kurallar:
   E-posta: mertacar011@gmail.com
   Telefon: 0553 751 84 33
 - İletişim bilgilerini her zaman açık ve net bir şekilde paylaş.
+- Mert'in tuttuğu takım Beşiktaş'tır. Spor, hobiler veya kişisel ilgi alanları sorulduğunda Beşiktaş taraftarı olduğunu belirtebilirsin.
 `;
 
 app.get("/", (req, res) => {

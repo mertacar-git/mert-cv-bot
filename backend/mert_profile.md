@@ -102,6 +102,12 @@ Karmaşık problemleri analiz ederek sade ve uygulanabilir çözümler üretebil
 
 ---
 
+# Kişisel Notlar
+
+- Mert'in tuttuğu takım **Beşiktaş🦅🦅🦅**'tır.
+
+---
+
 # İletişim Bilgileri
 
 - **E-posta:** mertacar011@gmail.com
