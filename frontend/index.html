@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="tr" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mert CV Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Header Controls -->
+    <div class="header-controls">
+      <div class="control-group">
+        <button id="theme-toggle" class="control-btn" title="Tema Değiştir">🌓</button>
+        <div class="language-selector">
+          <button id="lang-toggle" class="control-btn" title="Dil Seç">🌐</button>
+          <div id="lang-menu" class="lang-menu hidden">
+            <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="lang-option" data-lang="en">🇬🇧 English</button>
+          </div>
+        </div>
+        <button id="stats-toggle" class="control-btn" title="İstatistikler">📊</button>
+        <button id="qr-toggle" class="control-btn" title="QR Kod">📱</button>
+        <a href="#" class="control-btn" id="cv-download" title="CV İndir">📄</a>
+      </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="qr-title">QR Kod</h3>
+          <button class="modal-close" id="qr-close">×</button>
+        </div>
+        <div class="modal-body">
+          <div id="qrcode"></div>
+          <p id="qr-text">Bu QR kodu tarayarak CV'ye erişebilirsiniz</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Modal -->
+    <div id="stats-modal" class="modal hidden">
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h3 id="stats-title">📊 İstatistikler</h3>
+          <button class="modal-close" id="stats-close">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="total-questions">0</div>
+              <div class="stat-label" id="stat-questions-label">Toplam Soru</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="session-time">0 dk</div>
+              <div class="stat-label" id="stat-time-label">Oturum Süresi</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="avg-response-time">-</div>
+              <div class="stat-label" id="stat-avg-label">Ort. Yanıt Süresi</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="topics-discussed">0</div>
+              <div class="stat-label" id="stat-topics-label">Konu Başlığı</div>
+            </div>
+          </div>
+          <div class="stats-topics" id="topics-list">
+            <h4 id="topics-title">En Çok Sorulan Konular</h4>
+            <div id="topics-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="avatar">
+          <img src="assets/mert-photo.jpg.jpg" alt="Mert Açar" id="profile-photo" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='M'; this.parentElement.style.fontWeight='700'; this.parentElement.style.fontSize='1.5rem'; this.parentElement.style.color='var(--text-main)';" />
+        </div>
+        <div class="brand-text">
+          <h1 id="brand-title">Mert CV Bot</h1>
+          <p id="brand-subtitle">Software Developer • Powered by OpenAI</p>
+        </div>
+      </div>
+      <div class="info">
+        <h2>Mert Açar</h2>
+        <p id="job-title">Junior Software Developer</p>
+        <div class="tags">
+          <span>.NET</span>
+          <span>SQL</span>
+          <span>Angular</span>
+          <span>Oracle</span>
+          <span>AI & Finance</span>
+        </div>
+        <div class="contact-buttons">
+          <a href="mailto:mertacar011@gmail.com" class="contact-btn" title="E-posta gönder" id="email-btn">
+            <span>📧</span> <span id="email-text">E-posta</span>
+          </a>
+          <a href="tel:+905537518433" class="contact-btn" title="Telefon ara" id="phone-btn">
+            <span>📞</span> <span id="phone-text">Telefon</span>
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/mertacarr/" target="_blank" class="social-link" title="LinkedIn" id="linkedin-link">
+            <span>💼</span>
+          </a>
+          <a href="https://github.com/mertacar-git" target="_blank" class="social-link" title="GitHub" id="github-link">
+            <span>💻</span>
+          </a>
+        </div>
+        <div class="hint" id="hint-text">
+          İş görüşmesi, staj veya teknik ekip için Mert hakkında detaylı sorular sorabilirsiniz.
+        </div>
+      </div>
+      <footer>
+        <p>Hosted on GitHub Pages • API via Render/Railway</p>
+      </footer>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <div>
+          <h2 id="chat-title">Konuşma Alanı</h2>
+          <p id="chat-subtitle">Mert'in deneyimleri, projeleri, güçlü yönleri hakkında soru sor.</p>
+        </div>
+      </header>
+
+      <section id="messages" class="messages">
+        <div class="message bot">
+          <div class="bubble" id="welcome-message">
+            Merhaba, ben Mert Açar'ın interaktif CV botuyum. Mert hakkında merak ettiğiniz her şeyi
+            kurumsal ve net bir dille açıklayabilirim. Örneğin:
+            <br /><br />
+            • "Mert'in backend tecrübesini özetler misin?"<br />
+            • "Baskı altında çalışma ve problem çözme tarafında nasıldır?"<br />
+            • "Finansal analiz ve AI çalışmaları hakkında bilgi verir misin?"
+          </div>
+          <div class="meta">Bot • <span id="now-text">Şimdi</span></div>
+        </div>
+      </section>
+
+      <!-- Quick Questions -->
+      <div id="quick-questions" class="quick-questions">
+        <button class="quick-btn" data-question="Mert'in backend tecrübesi nedir?" id="quick-backend">Backend Tecrübesi</button>
+        <button class="quick-btn" data-question="Mert'in projeleri nelerdir?" id="quick-projects">Projeler</button>
+        <button class="quick-btn" data-question="Mert'in güçlü yönleri nelerdir?" id="quick-strengths">Güçlü Yönler</button>
+        <button class="quick-btn" data-question="Mert'in iletişim bilgileri nelerdir?" id="quick-contact">İletişim</button>
+      </div>
+
+      <form id="chat-form" class="chat-input">
+        <button type="button" id="voice-btn" class="voice-btn" title="Sesli Soru Sor">🎤</button>
+        <input
+          id="question"
+          placeholder="Mert hakkında bir soru yazın..."
+          autocomplete="off"
+        />
+        <button type="submit" id="send-btn">Gönder</button>
+        <button type="button" id="tts-btn" class="tts-btn" title="Son Yanıtı Sesli Dinle">🔊</button>
+        <button type="button" id="export-btn" class="export-btn" title="Konuşmayı İndir">💾</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
