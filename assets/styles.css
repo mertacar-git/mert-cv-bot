@@ -938,26 +938,22 @@ body {
     border-radius: 0;
   }
 
-  /* Sidebar'ı mobilde de göster, üstte küçük bir özet olarak */
+  /* Sidebar'ı mobilde gösterme, sadece chat kalsın */
   .sidebar {
-    display: flex;
-    grid-row: 1;
-    max-height: 35vh;
+    display: none;
   }
 
   .chat {
     grid-row: 2;
   }
 
-  /* Header butonlarının yazıların üstüne binmesini engelle */
-  .chat-header {
-    padding-top: 56px;
-  }
-
+  /* Üst kontrol menüsünü sabitten çıkar, içerik akışına al */
   .header-controls {
-    top: 8px;
-    right: 8px;
-    transform: none;
+    position: static;
+    top: auto;
+    right: auto;
+    margin: 8px auto 0;
+    justify-content: center;
   }
 
   .control-group {
@@ -970,7 +966,23 @@ body {
     font-size: 1rem;
   }
 
+  /* Artık padding-top'a gerek yok, normal header yüksekliği yeterli */
+  .chat-header {
+    padding-top: 16px;
+  }
+
+  /* Mesaj balonlarını mobilde biraz daralt ve metni okunur yap */
+  .messages {
+    padding: 10px 12px;
+  }
+
   .message {
-    max-width: 90%;
+    max-width: 92%;
+  }
+
+  .bubble {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding: 10px 14px;
   }
 }
