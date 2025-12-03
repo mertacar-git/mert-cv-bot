@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/ask"; // Local geliştirme için. Deploy sonrası Render/Railway URL'i ile değiştirin.
+const API_URL = "https://mert-cv-bot.onrender.com"; // Local geliştirme için. Deploy sonrası Render/Railway URL'i ile değiştirin.
 
 const form = document.getElementById("chat-form");
 const input = document.getElementById("question");
