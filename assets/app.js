@@ -1,4 +1,4 @@
-const API_URL = https://mert-cv-bot.onrender.com/ask
+const API_URL = "https://mert-cv-bot.onrender.com/ask";
 
 const form = document.getElementById("chat-form");
 const input = document.getElementById("question");
