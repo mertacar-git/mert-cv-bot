@@ -958,9 +958,9 @@ body {
 @media (max-width: 800px) {
   html,
   body {
-    height: auto;
+    height: 100vh;
     min-height: 100vh;
-    overflow: auto;
+    overflow: hidden;            /* Sayfa genelinde scroll yok, sadece içerik alanı */
     display: block;              /* Flex merkezlemeyi kaldır */
   }
 
@@ -969,9 +969,9 @@ body {
     grid-template-rows: auto 1fr;
     max-width: 100%;
     margin: 0;
-    height: auto;
+    height: 100vh;               /* Tüm ekranı kaplasın */
     min-height: 100vh;
-    max-height: none;            /* 100vh sınırını kaldır, sayfa uzayabilsin */
+    max-height: 100vh;
     border-radius: 0;
   }
 
@@ -982,7 +982,8 @@ body {
 
   .chat {
     grid-row: 2;
-    padding-bottom: env(safe-area-inset-bottom, 16px);
+    height: 100%;
+    overflow: hidden;            /* Sadece mesaj listesi scroll olsun */
   }
 
   /* Üst kontrol menüsünü sabitten çıkar, içerik akışına al */
@@ -1010,7 +1011,10 @@ body {
 
   /* Mesaj balonlarını mobilde biraz daralt ve metni okunur yap */
   .messages {
-    padding: 10px 12px 80px; /* altta input için ekstra boşluk */
+    padding: 10px 12px 8px;
+    flex: 1;
+    overflow-y: auto;            /* Sadece burası kaydırılabilir */
+    -webkit-overflow-scrolling: touch;
   }
 
   .message {
@@ -1025,10 +1029,30 @@ body {
 
   /* Alt URL barının üstünde kalmaları için safe-area padding */
   .chat-input {
-    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0));
   }
 
   .quick-questions {
-    padding-bottom: 16px;
+    padding-bottom: 4px;
+  }
+
+  /* Mobilde butonları küçült, taşmayı engelle */
+  .quick-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  .chat-input button {
+    min-width: 72px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .voice-btn,
+  .export-btn,
+  .tts-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 }
