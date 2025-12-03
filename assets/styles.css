@@ -549,7 +549,7 @@ body {
   flex-direction: column;
   height: 100%;
   background: var(--bg-chat);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .chat-header {
