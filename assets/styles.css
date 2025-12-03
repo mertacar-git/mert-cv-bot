@@ -1034,8 +1034,8 @@ body {
   /* Alt URL barının üstünde kalmaları için safe-area padding */
   .chat-input {
     padding-bottom: calc(10px + env(safe-area-inset-bottom, 0));
-    flex-direction: column;          /* Mobilde dikey hizala */
-    align-items: stretch;
+    flex-direction: row;             /* Tek satırda yan yana */
+    align-items: center;
     gap: 6px;
     overflow-x: hidden;
   }
@@ -1055,21 +1055,22 @@ body {
   }
 
   .chat-input input {
-    width: 100%;
+    flex: 1;
+    min-width: 0;                    /* Taşma yerine küçülsün */
   }
 
   .chat-input button {
-    width: 100%;                    /* Tüm butonlar tam satır, taşma yok */
-    min-width: 0;
-    padding: 10px 14px;
-    font-size: 0.85rem;
+    min-width: 70px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 
   .voice-btn,
   .export-btn,
   .tts-btn {
-    height: 40px;
-    font-size: 1rem;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    border-radius: 50%;
   }
 }
