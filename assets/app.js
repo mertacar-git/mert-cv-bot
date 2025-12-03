@@ -1379,7 +1379,7 @@ async function handleSubmit(e) {
     removeLoadingMessage();
     console.error("Error:", err);
     const errorMsg = err.message.includes("Failed to fetch") || err.message.includes("NetworkError")
-      ? "Sunucuya ulaşılamadı. Backend'in çalıştığından emin olun (http://localhost:3001)."
+      ? "Sunucuya ulaşılamadı. Backend'in çalıştığından emin olun (https://mert-cv-bot.onrender.com)."
       : "Bir hata oluştu: " + err.message;
     addMessage(errorMsg, "bot", true);
   } finally {
