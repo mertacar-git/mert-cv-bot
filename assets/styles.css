@@ -55,6 +55,7 @@ body {
   padding: 0;
   height: 100vh;
   overflow: hidden;
+  overflow-x: hidden; /* Genel yatay scroll'u kapat */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: var(--bg);
   color: var(--text-main);
@@ -83,6 +84,7 @@ body {
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -708,6 +710,8 @@ body {
   border-top: 1px solid var(--border-subtle);
   background: var(--bg-elevated);
   flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .voice-btn,
@@ -1030,10 +1034,15 @@ body {
   /* Alt URL barının üstünde kalmaları için safe-area padding */
   .chat-input {
     padding-bottom: calc(10px + env(safe-area-inset-bottom, 0));
+    flex-wrap: wrap;                 /* Gerekirse butonları alta indir */
+    overflow-x: hidden;
   }
 
   .quick-questions {
     padding-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   /* Mobilde butonları küçült, taşmayı engelle */
